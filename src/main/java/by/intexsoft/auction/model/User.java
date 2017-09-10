@@ -45,5 +45,4 @@ public class User extends AbstractEntity{
 	  joinColumns = @JoinColumn(name = "user_id"),
 	  inverseJoinColumns = @JoinColumn(name = "authority_id"))
 	public Set<Authority> authorities;
-	
 }

@@ -4,10 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- * @author Sergey
- *
- */
 @Entity
 @Table
 public class Status extends AbstractEntity {
@@ -16,5 +12,4 @@ public class Status extends AbstractEntity {
 	
 	@Column(name = "status_name")
     public String statusName;
-	
 }

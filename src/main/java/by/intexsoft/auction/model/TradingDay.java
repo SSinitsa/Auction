@@ -3,7 +3,6 @@ package by.intexsoft.auction.model;
 import static javax.persistence.FetchType.EAGER;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -32,6 +31,4 @@ public class TradingDay extends AbstractEntity{
 	
 	@OneToMany(mappedBy = "queueDay", fetch = FetchType.EAGER)
 	public Set<Auction> tradesQueue;
-	
-
 }
