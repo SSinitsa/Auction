@@ -3,7 +3,7 @@ package by.intexsoft.auction.model;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -38,9 +38,9 @@ public class User extends AbstractEntity{
 	public String phone;
 
 	@Column(nullable = false)
-	public Timestamp registrated;
+	public Date registrated;
 	
-	@ManyToMany(fetch = EAGER, cascade=ALL)
+	@ManyToMany(fetch = EAGER)
 	@JoinTable(name = "user_authority",
 	  joinColumns = @JoinColumn(name = "user_id"),
 	  inverseJoinColumns = @JoinColumn(name = "authority_id"))

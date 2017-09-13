@@ -24,11 +24,8 @@ public class TradingDay extends AbstractEntity{
 	
 	@ManyToOne(fetch = EAGER)
 	@JoinColumn(name = "manager_id")
-	public User workingManager;
+	public User manager;
 	
 	@OneToMany(mappedBy = "tradingDay", fetch = FetchType.EAGER)
 	public Set<Auction> auctions;
-	
-	@OneToMany(mappedBy = "queueDay", fetch = FetchType.EAGER)
-	public Set<Auction> tradesQueue;
 }

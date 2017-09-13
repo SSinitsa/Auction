@@ -5,11 +5,14 @@ import static javax.persistence.FetchType.LAZY;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,32 +23,20 @@ public class Auction extends AbstractEntity {
 	private static final long serialVersionUID = 2493466916836151381L;
 	
 	@ManyToOne(fetch = LAZY)
-	@JoinColumn(name = "trading_day_id")
+	@JoinColumn(name = "day_id")
 	public TradingDay tradingDay;
-	
-	@ManyToOne(fetch = LAZY)
-	@JoinColumn(name = "queue_day_id")
-	public TradingDay queueDay;
 	
 	@Column(name = "start_time", nullable = false)
 	public Calendar startTime;
 	
-	@Column
+	@Column(nullable = false)
 	public int duration;
 	
 	@Column(name = "step_price", scale = 2)
 	public BigDecimal stepPrice;
 
-	@Column(name = "current_bid", scale = 2)
-	public BigDecimal currentBid;
-	
-	@OneToOne
-    @JoinColumn(name = "bid_holder_id")
-	public User bidHolder;
-
-	@ManyToOne(fetch = EAGER)
-	@JoinColumn(name = "manager_id")
-	public User manager;
+	@OneToMany(mappedBy = "auction", fetch = FetchType.EAGER)
+	public Set<Bid> bidList;
 	
 	@OneToOne(fetch = EAGER)
 	@JoinColumn(name = "lot_id")
