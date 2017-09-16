@@ -41,5 +41,21 @@ public class Auction extends AbstractEntity {
 	@OneToOne(fetch = EAGER)
 	@JoinColumn(name = "lot_id")
 	public Lot lot;
+	
+	public Auction() {
+	}
+	
+	public Auction (Lot lot) {
+		this.lot = lot;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Auction [tradingDay=" + tradingDay.tradingDate.getTime() + ", startTime=" + startTime.getTime() + ", duration=" + duration/1000
+				+ ", stepPrice=" + stepPrice + ", bidList=" + bidList + ", lot=" + lot + "]";
+	}
 
 }

@@ -32,7 +32,7 @@ public class Authority extends AbstractEntity implements GrantedAuthority {
 	 */
 	@Override
 	public String toString() {
-		return "Authority [authority=" + authority + "]";
+		return "Authority [" + authority + "]";
 	}
 	
 	

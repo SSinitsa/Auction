@@ -22,8 +22,8 @@ public class Bid extends AbstractEntity {
 	public BigDecimal value;
 	
 	@OneToOne
-    @JoinColumn(name = "holder_id")
-	public User holder;
+    @JoinColumn(name = "bidder_id")
+	public User bidder;
 	
 	@Column (name = "bid_time")
 	public Timestamp bidTime;

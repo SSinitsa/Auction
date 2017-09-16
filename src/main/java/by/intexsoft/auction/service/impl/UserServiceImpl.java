@@ -1,5 +1,6 @@
 package by.intexsoft.auction.service.impl;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,6 +32,7 @@ public class UserServiceImpl extends AbstractServiceEntityImpl<User> implements 
 		Set<Authority> authorities = new HashSet<>();
 		authorities.add(authorityService.findByAuthority("USER_ROLE"));
 		user.authorities = authorities;
+		user.registrated = new Date();
 		return repository.save(user);
 	}
 

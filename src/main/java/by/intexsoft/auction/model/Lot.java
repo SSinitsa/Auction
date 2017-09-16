@@ -4,6 +4,7 @@ import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,4 +39,18 @@ public class Lot extends AbstractEntity{
 	@OneToOne(fetch = LAZY)
 	@JoinColumn(name = "auction_id")
 	public Auction auction;
+	
+	@Column
+	public Date added;
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Lot [title=" + title + ", description=" + description + ", startPrice=" + startPrice + ", seller="
+				+ seller + ", status=" + status + "]";
+	}
+	
+	
 }

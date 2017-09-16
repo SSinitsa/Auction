@@ -1,6 +1,5 @@
 package by.intexsoft.auction.model;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 import java.util.Date;
@@ -45,4 +44,18 @@ public class User extends AbstractEntity{
 	  joinColumns = @JoinColumn(name = "user_id"),
 	  inverseJoinColumns = @JoinColumn(name = "authority_id"))
 	public Set<Authority> authorities;
+	
+	@Column
+	public boolean isBanned;
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", phone=" + phone + ", registrated=" + registrated + ", authorities="
+				+ authorities + ", isBlocked=" + isBanned + "]";
+	}
+	
 }

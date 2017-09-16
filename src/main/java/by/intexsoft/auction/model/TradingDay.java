@@ -19,7 +19,7 @@ public class TradingDay extends AbstractEntity{
 
 	private static final long serialVersionUID = 4112777822259677565L;
 
-	@Column (name = "trading_date")
+	@Column (name = "trading_date", nullable = false)
 	public Calendar tradingDate;
 	
 	@ManyToOne(fetch = EAGER)
@@ -28,4 +28,12 @@ public class TradingDay extends AbstractEntity{
 	
 	@OneToMany(mappedBy = "tradingDay", fetch = FetchType.EAGER)
 	public Set<Auction> auctions;
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TradingDay [tradingDate=" + tradingDate + ", manager=" + manager + ", auctions=" + auctions + "]";
+	}
 }
